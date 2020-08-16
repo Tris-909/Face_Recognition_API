@@ -5,10 +5,10 @@ const cors = require('cors');
 var db = require('knex')({
     client: 'pg',
     connection: {
-      host : 'postgresql-perpendicular-09162',
-      user : 'postgres',
-      password : 'Minhtri1',
-      database : 'face_recognition'
+      host : process.env.DATABASE_URL,
+      ssl: {
+        rejectUnauthorized: false
+      }
     }
 });
 
