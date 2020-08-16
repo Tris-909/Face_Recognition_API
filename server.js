@@ -84,6 +84,6 @@ app.put('/image', (req, res) => {
     .catch((err) => res.status(400).json(err));
 });
 
-app.listen('https://git.heroku.com/lit-earth-99267.git', () => {
+app.listen(process.env.PORT || 3001, () => {
     console.log(`worked on ${process.env.PORT}`);
 });
