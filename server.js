@@ -5,7 +5,7 @@ const cors = require('cors');
 var db = require('knex')({
     client: 'pg',
     connection: {
-      connectionString : 'postgres://oiiftdjhergyua:5ba38efeb16964b7ef6c2508f0c57b1197def45ae41e3c034f31592b15fbd72d@ec2-52-201-55-4.compute-1.amazonaws.com:5432/d649801rquflpo',
+     connectionString : process.env.DATABASE_URL,
       ssl: {
         rejectUnauthorized: false
       }
@@ -84,6 +84,6 @@ app.put('/image', (req, res) => {
     .catch((err) => res.status(400).json(err));
 });
 
-app.listen('postgres://oiiftdjhergyua:5ba38efeb16964b7ef6c2508f0c57b1197def45ae41e3c034f31592b15fbd72d@ec2-52-201-55-4.compute-1.amazonaws.com:5432/d649801rquflpo', () => {
+app.listen(3001, () => {
     console.log(`worked on ${process.env.PORT}`);
 });
